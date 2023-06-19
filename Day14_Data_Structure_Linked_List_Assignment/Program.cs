@@ -17,9 +17,11 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
             linkedList.AppendNode(56);
             linkedList.AppendNode(30);
+            linkedList.AppendNode(40);
             linkedList.AppendNode(70);
 
-            linkedList.InsertAfter(30, 40);
+            linkedList.DeleteNode(40);
+            Console.WriteLine("LinkedList size is: " + linkedList.Size);
 
             linkedList.PrintList();
 

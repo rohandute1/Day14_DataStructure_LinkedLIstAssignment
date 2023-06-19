@@ -21,10 +21,12 @@ namespace Day14_Data_Structure_Linked_List_Assignment
         }
 
         public Node Head;
+        public int Size { get; private set; }
 
         public LinkedList()
         {
             Head = null;
+            Size = 0;
         }
 
         public void AppendNode(int data)
@@ -46,6 +48,8 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
                 currentNode.Next = newNode;
             }
+
+            Size++;
         }
 
         public void InsertNode(int data, int position)
@@ -71,6 +75,8 @@ namespace Day14_Data_Structure_Linked_List_Assignment
                 newNode.Next = currentNode.Next;
                 currentNode.Next = newNode;
             }
+
+            Size++;
         }
 
         public void InsertAfter(int searchData, int insertData)
@@ -82,11 +88,45 @@ namespace Day14_Data_Structure_Linked_List_Assignment
                 Node newNode = new Node(insertData);
                 newNode.Next = searchNode.Next;
                 searchNode.Next = newNode;
+
+                Size++;
             }
             else
             {
                 Console.WriteLine("Node with value {0} not found.", searchData);
             }
+        }
+
+        public void DeleteNode(int data)
+        {
+            if (Head == null)
+            {
+                Console.WriteLine("LinkedList is empty.");
+                return;
+            }
+
+            if (Head.Data == data)
+            {
+                Head = Head.Next;
+                Size--;
+                return;
+            }
+
+            Node currentNode = Head;
+
+            while (currentNode.Next != null)
+            {
+                if (currentNode.Next.Data == data)
+                {
+                    currentNode.Next = currentNode.Next.Next;
+                    Size--;
+                    return;
+                }
+
+                currentNode = currentNode.Next;
+            }
+
+            Console.WriteLine("Node with value {0} not found.", data);
         }
 
         public Node Search(int value)
