@@ -18,7 +18,7 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             linkedList.AppendNode(30);
             linkedList.AppendNode(70);
 
-            linkedList.Pop();
+            linkedList.PopLast();
 
             linkedList.PrintList();
 
