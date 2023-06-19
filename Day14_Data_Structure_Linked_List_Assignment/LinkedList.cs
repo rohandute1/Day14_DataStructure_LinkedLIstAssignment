@@ -52,11 +52,7 @@ namespace Day14_Data_Structure_Linked_List_Assignment
         {
             Node newNode = new Node(data);
 
-            if (Head == null)
-            {
-                Head = newNode;
-            }
-            else if (position == 0)
+            if (position == 0)
             {
                 newNode.Next = Head;
                 Head = newNode;
@@ -74,6 +70,14 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
                 newNode.Next = currentNode.Next;
                 currentNode.Next = newNode;
+            }
+        }
+
+        public void Pop()
+        {
+            if (Head != null)
+            {
+                Head = Head.Next;
             }
         }
 
