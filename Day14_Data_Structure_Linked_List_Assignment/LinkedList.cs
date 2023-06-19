@@ -21,12 +21,10 @@ namespace Day14_Data_Structure_Linked_List_Assignment
         }
 
         public Node Head;
-        public int Size { get; private set; }
 
         public LinkedList()
         {
             Head = null;
-            Size = 0;
         }
 
         public void AppendNode(int data)
@@ -48,102 +46,6 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
                 currentNode.Next = newNode;
             }
-
-            Size++;
-        }
-
-        public void InsertNode(int data, int position)
-        {
-            Node newNode = new Node(data);
-
-            if (position == 0)
-            {
-                newNode.Next = Head;
-                Head = newNode;
-            }
-            else
-            {
-                Node currentNode = Head;
-                int currentPosition = 0;
-
-                while (currentPosition < position - 1 && currentNode.Next != null)
-                {
-                    currentNode = currentNode.Next;
-                    currentPosition++;
-                }
-
-                newNode.Next = currentNode.Next;
-                currentNode.Next = newNode;
-            }
-
-            Size++;
-        }
-
-        public void InsertAfter(int searchData, int insertData)
-        {
-            Node searchNode = Search(searchData);
-
-            if (searchNode != null)
-            {
-                Node newNode = new Node(insertData);
-                newNode.Next = searchNode.Next;
-                searchNode.Next = newNode;
-
-                Size++;
-            }
-            else
-            {
-                Console.WriteLine("Node with value {0} not found.", searchData);
-            }
-        }
-
-        public void DeleteNode(int data)
-        {
-            if (Head == null)
-            {
-                Console.WriteLine("LinkedList is empty.");
-                return;
-            }
-
-            if (Head.Data == data)
-            {
-                Head = Head.Next;
-                Size--;
-                return;
-            }
-
-            Node currentNode = Head;
-
-            while (currentNode.Next != null)
-            {
-                if (currentNode.Next.Data == data)
-                {
-                    currentNode.Next = currentNode.Next.Next;
-                    Size--;
-                    return;
-                }
-
-                currentNode = currentNode.Next;
-            }
-
-            Console.WriteLine("Node with value {0} not found.", data);
-        }
-
-        public Node Search(int value)
-        {
-            Node currentNode = Head;
-
-            while (currentNode != null)
-            {
-                if (currentNode.Data == value)
-                {
-                    return currentNode;
-                }
-
-                currentNode = currentNode.Next;
-            }
-
-            return null;
         }
 
         public void PrintList()
@@ -164,5 +66,31 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
             Console.WriteLine();
         }
+        public class SortedLinkedList : LinkedList
+        {
+            public void Add(int data)
+            {
+                Node newNode = new Node(data);
+
+                if (Head == null || data < Head.Data)
+                {
+                    newNode.Next = Head;
+                    Head = newNode;
+                }
+                else
+                {
+                    Node currentNode = Head;
+
+                    while (currentNode.Next != null && data > currentNode.Next.Data)
+                    {
+                        currentNode = currentNode.Next;
+                    }
+
+                    newNode.Next = currentNode.Next;
+                    currentNode.Next = newNode;
+                }
+            }
+        }
+
     }
 }

@@ -13,17 +13,14 @@ namespace Day14_Data_Structure_Linked_List_Assignment
         {
             Console.WriteLine("Welcome to linked list assignment");
 
-            LinkedList linkedList = new LinkedList();
+            SortedLinkedList sortedLinkedList = new SortedLinkedList();
 
-            linkedList.AppendNode(56);
-            linkedList.AppendNode(30);
-            linkedList.AppendNode(40);
-            linkedList.AppendNode(70);
+            sortedLinkedList.Add(56);
+            sortedLinkedList.Add(30);
+            sortedLinkedList.Add(40);
+            sortedLinkedList.Add(70);
 
-            linkedList.DeleteNode(40);
-            Console.WriteLine("LinkedList size is: " + linkedList.Size);
-
-            linkedList.PrintList();
+            sortedLinkedList.PrintList();
 
             Console.ReadLine();
         }
