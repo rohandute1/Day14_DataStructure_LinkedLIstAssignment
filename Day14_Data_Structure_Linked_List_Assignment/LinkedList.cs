@@ -38,6 +38,7 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             else
             {
                 Node currentNode = Head;
+
                 while (currentNode.Next != null)
                 {
                     currentNode = currentNode.Next;
@@ -53,7 +54,13 @@ namespace Day14_Data_Structure_Linked_List_Assignment
 
             while (currentNode != null)
             {
-                Console.Write(currentNode.Data + " ");
+                Console.Write(currentNode.Data);
+
+                if (currentNode.Next != null)
+                {
+                    Console.Write("->");
+                }
+
                 currentNode = currentNode.Next;
             }
 
