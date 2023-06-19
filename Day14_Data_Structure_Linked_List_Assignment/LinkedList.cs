@@ -27,7 +27,7 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             Head = null;
         }
 
-        public void AddNode(int data)
+        public void AppendNode(int data)
         {
             Node newNode = new Node(data);
 
