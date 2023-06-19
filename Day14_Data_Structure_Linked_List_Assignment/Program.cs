@@ -15,8 +15,8 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             LinkedList linkedList = new LinkedList();
 
             linkedList.AppendNode(56);
-            linkedList.AppendNode(30);
             linkedList.AppendNode(70);
+            linkedList.InsertNode(30, 1);
 
             linkedList.PrintList();
 

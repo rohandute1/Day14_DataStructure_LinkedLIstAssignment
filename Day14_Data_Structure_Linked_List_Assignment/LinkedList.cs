@@ -48,6 +48,35 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             }
         }
 
+        public void InsertNode(int data, int position)
+        {
+            Node newNode = new Node(data);
+
+            if (Head == null)
+            {
+                Head = newNode;
+            }
+            else if (position == 0)
+            {
+                newNode.Next = Head;
+                Head = newNode;
+            }
+            else
+            {
+                Node currentNode = Head;
+                int currentPosition = 0;
+
+                while (currentPosition < position - 1 && currentNode.Next != null)
+                {
+                    currentNode = currentNode.Next;
+                    currentPosition++;
+                }
+
+                newNode.Next = currentNode.Next;
+                currentNode.Next = newNode;
+            }
+        }
+
         public void PrintList()
         {
             Node currentNode = Head;
