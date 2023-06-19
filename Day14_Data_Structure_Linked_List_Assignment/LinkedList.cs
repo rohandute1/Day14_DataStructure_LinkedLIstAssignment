@@ -73,6 +73,22 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             }
         }
 
+        public void InsertAfter(int searchData, int insertData)
+        {
+            Node searchNode = Search(searchData);
+
+            if (searchNode != null)
+            {
+                Node newNode = new Node(insertData);
+                newNode.Next = searchNode.Next;
+                searchNode.Next = newNode;
+            }
+            else
+            {
+                Console.WriteLine("Node with value {0} not found.", searchData);
+            }
+        }
+
         public Node Search(int value)
         {
             Node currentNode = Head;
