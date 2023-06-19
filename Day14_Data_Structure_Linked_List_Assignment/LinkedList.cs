@@ -73,28 +73,21 @@ namespace Day14_Data_Structure_Linked_List_Assignment
             }
         }
 
-        public void PopLast()
+        public Node Search(int value)
         {
-            if (Head == null)
-            {
-                return;
-            }
-            else if (Head.Next == null)
-            {
-                Head = null;
-                return;
-            }
-
             Node currentNode = Head;
-            Node previousNode = null;
 
-            while (currentNode.Next != null)
+            while (currentNode != null)
             {
-                previousNode = currentNode;
+                if (currentNode.Data == value)
+                {
+                    return currentNode;
+                }
+
                 currentNode = currentNode.Next;
             }
 
-            previousNode.Next = null;
+            return null;
         }
 
         public void PrintList()
